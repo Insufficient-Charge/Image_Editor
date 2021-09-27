@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bunnj.Lab10Controller">
+   <left>
+      <Button mnemonicParsing="false" onAction="#undo" text="Undo" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
+   <right>
+      <Button mnemonicParsing="false" onAction="#redo" text="Redo" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </right>
+   <center>
+      <HBox alignment="CENTER" prefHeight="700.0" prefWidth="700.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Original" />
+                  <ImageView fx:id="originalImageView" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="New" />
+                  <ImageView fx:id="imageView" fitHeight="500.0" fitWidth="500.0" onMouseDragged="#colorPixelRed" onMousePressed="#maintainImageHistory" onMouseReleased="#maintainImageHistory" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox fx:id="slideshowBar" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#aboutAlert" text="About This Program" />
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#load" text="Open" />
+                  <Button mnemonicParsing="false" onAction="#save" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#reload" text="Reload" />
+                  <Button mnemonicParsing="false" onAction="#grayscale" text="Grayscale" />
+                  <Button mnemonicParsing="false" onAction="#negative" text="Negative" />
+                  <Button mnemonicParsing="false" onAction="#brighten" text="Brighten" />
+                  <Button mnemonicParsing="false" onAction="#darken" text="Darken" />
+                  <Button mnemonicParsing="false" onAction="#desaturate" text="Desaturate" />
+                  <Button mnemonicParsing="false" onAction="#saturate" text="Saturate" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#red" text="Red" />
+                  <Button mnemonicParsing="false" onAction="#redgray" text="Red-gray" />
+                  <Button fx:id="showFilterButton" mnemonicParsing="false" onAction="#showKernel" text="Set Filter" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#removeFromSlideshow" text="Remove from Slideshow" />
+                  <Button mnemonicParsing="false" onAction="#addCurrentImageToSlideshow" text="Add to Slideshow" />
+                  <Button mnemonicParsing="false" onAction="#playSlides" text="Play Slideshow" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
